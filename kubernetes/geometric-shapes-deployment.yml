@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geometric-shapes-deployment
+  labels:
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: geometric-shapes-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: geometric-shapes-app
+        tier: backend
+    spec:
+      containers:
+        - name: geometric-shapes-app-container
+          image: geometric-shapes-app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9000
