@@ -2,9 +2,7 @@
 
 namespace App\Mappers\Response;
 
-use JsonSerializable;
-
-class CircleResponseMapper implements JsonSerializable
+class CircleResponseMapper implements ShapeResponseMapperInterface
 {
     /** @var string */
     private $type;
@@ -18,23 +16,11 @@ class CircleResponseMapper implements JsonSerializable
     /** @var float */
     private $circumference;
 
-    public function setType(string $type): void
+    public function __construct(string $type, float $radius, float $surface, float $circumference)
     {
         $this->type = $type;
-    }
-
-    public function setRadius(float $radius): void
-    {
         $this->radius = $radius;
-    }
-
-    public function setSurface(float $surface): void
-    {
         $this->surface = $surface;
-    }
-
-    public function setCircumference(float $circumference): void
-    {
         $this->circumference = $circumference;
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Mappers\Response;
 
-class TriangleResponseMapper
+class TriangleResponseMapper implements ShapeResponseMapperInterface
 {
     /** @var string */
     private $type;
@@ -22,33 +22,13 @@ class TriangleResponseMapper
     /** @var float */
     private $circumference;
 
-    public function setType(string $type): void
+    public function __construct(string $type, float $a, float $b, float $c, float $surface, float $circumference)
     {
         $this->type = $type;
-    }
-
-    public function setA(float $a): void
-    {
         $this->a = $a;
-    }
-
-    public function setB(float $b): void
-    {
         $this->b = $b;
-    }
-
-    public function setC(float $c): void
-    {
         $this->c = $c;
-    }
-
-    public function setSurface(float $surface): void
-    {
         $this->surface = $surface;
-    }
-
-    public function setCircumference(float $circumference): void
-    {
         $this->circumference = $circumference;
     }
 
