@@ -3,6 +3,7 @@
 namespace App\Services\Shapes;
 
 use App\Entities\ShapeInterface;
+use App\Enums\ShapesEnum;
 use App\Mappers\Response\ShapeResponseMapperInterface;
 use App\Mappers\Response\TriangleResponseMapper;
 
@@ -25,7 +26,7 @@ class TriangleService implements GeometryCalculatorInterface
         $circumference = $shapeInterface->getA() * $shapeInterface->getB() / 2;
 
         return new TriangleResponseMapper(
-            "triangle",
+            ShapesEnum::TRIANGLE,
             $shapeInterface->getA(),
             $shapeInterface->getB(),
             $shapeInterface->getC(),

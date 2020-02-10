@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Triangle;
+use App\Enums\ShapesEnum;
 use App\Http\Requests\TriangleRequest;
 use App\Mappers\Request\GeometryCalculatorMapper;
 use App\Services\GeometryCalculatorService;
@@ -17,7 +18,7 @@ class TriangleController extends Controller
 
         $triangle = new Triangle($data['a'], $data['b'], $data['c']);
 
-        $geometryCalculatorMapper = new GeometryCalculatorMapper("triangle", $triangle);
+        $geometryCalculatorMapper = new GeometryCalculatorMapper(ShapesEnum::TRIANGLE, $triangle);
 
         $triangleResponseMapper = $geometryCalculatorService->calculate($geometryCalculatorMapper);
 

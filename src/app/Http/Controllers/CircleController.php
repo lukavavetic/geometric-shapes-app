@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Circle;
+use App\Enums\ShapesEnum;
 use App\Http\Requests\CircleRequest;
 use App\Mappers\Request\GeometryCalculatorMapper;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class CircleController extends Controller
 
         $circle = new Circle($data['radius']);
 
-        $geometryCalculatorMapper = new GeometryCalculatorMapper("circle", $circle);
+        $geometryCalculatorMapper = new GeometryCalculatorMapper(ShapesEnum::CIRCLE, $circle);
 
         $circleResponseMapper = $geometryCalculatorService->calculate($geometryCalculatorMapper);
 

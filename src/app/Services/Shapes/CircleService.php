@@ -3,6 +3,7 @@
 namespace App\Services\Shapes;
 
 use App\Entities\ShapeInterface;
+use App\Enums\ShapesEnum;
 use App\Mappers\Response\CircleResponseMapper;
 use App\Mappers\Response\ShapeResponseMapperInterface;
 
@@ -25,7 +26,7 @@ class CircleService implements GeometryCalculatorInterface
         $circumference = 2 * $shapeInterface->getRadius() * pi();
 
         return new CircleResponseMapper(
-            "circle",
+            ShapesEnum::CIRCLE,
             $shapeInterface->getRadius(),
             $surface,
             $circumference
